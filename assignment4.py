@@ -1,21 +1,22 @@
+import nmap
+
+def write_to_file(host,result):
+    name = "%s.txt"%(host)
+    file = open(name,'w')
+    file.write(result)
+    file.close()
+for host in hosts:
+        nm.scan(host,'21-1000')
+        res = "Host : %s" %host + '\n' + "State : %s" %nm[host].state() + '\n'+ "info : %s" %nm.scaninfo()
+        write_to_file(host,res)
+
 def port_scanner():
-    """
-    write a port scanner using nmap library
-    for scanning 10 arbitrary hosts and and ports between
-    21-1000 then write the result to a file using
-    write_to_file function
-    """
+    file = open('hosts.txt','r')
+    hosts = file.read()
+    hosts = hosts.split('\n')
 
-def write_to_file(contents):
-    """
-    first remove the pass from function body
-    then write your code
-    :param contents: the result that should be written to file
-    :return: true if the writing successfull and false if can't
-    """
-    pass
-
-
+    nm =  nmap.PortScanner()
+    
 def main():
     port_scanner()
 
